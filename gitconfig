@@ -13,6 +13,7 @@
     sa = stash apply
     sc = stash clear
     ss = stash save
+    pr = pull --rebase
 
     l1 = !git --no-pager log --max-count=1 HEAD
     l3 = !git --no-pager log --max-count=3 HEAD
