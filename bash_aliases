@@ -16,6 +16,11 @@ then
   alias edit="eie --no-frame"
   alias ed="eie --no-wait"
   export EDITOR="eie"
+elif which vim > /dev/null 2>&1
+then
+  alias edit="vim"
+  alias ed="vim"
+  export EDITOR="vim"
 elif which mg > /dev/null 2>&1
 then
   alias edit="mg"
