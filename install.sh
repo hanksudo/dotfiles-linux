@@ -22,6 +22,8 @@ COPY()
 SED gitconfig
 
 COPY bash_aliases
+COPY bash_profile
+COPY functions
 #COPY joverc
 COPY mg
 COPY tcshrc

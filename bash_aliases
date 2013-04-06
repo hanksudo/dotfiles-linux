@@ -1,13 +1,41 @@
 # .bash_aliases -*- mode: shell-script -*-
 
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  alias ls="ls --color"
+else # OS X `ls`
+  if gls > /dev/null 2>&1; then
+    alias ls='gls --color=always'
+  else
+    alias ls='ls -G'
+  fi
+fi
+
 alias ll='ls -l'
 alias la='ls -A'
 alias lc='ls -CF'
+alias lsd='ls -l | grep "^d"'  # List only directories
+alias hosts='sudo $EDITOR /etc/hosts'
+
+# Empty the Trash on all mounted volumes and the main HDD
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 
 # gnu diff does not have DIFFOPTIONS like FreeBSD so:
 alias diff='diff -u'
 
 alias reb='find . -name \*~ -print -delete'
+
+# `cat` with beautiful colors. requires Pygments installed.
+#                  sudo easy_install Pygments
+alias c='pygmentize -O style=monokai -f console256 -g'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
 
 export LESS="-iR"
 
@@ -101,6 +129,12 @@ pathfront()
     [ -n "${item}" ] && p="${p}:${item}"
   done
   PATH="${p:1}:${PATH}"
+}
+
+# Start an HTTP server from a directory, optionally specifying the port
+server() {
+    local port="${1:-8000}"
+    open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port"
 }
 
 # include machine specific aliases
