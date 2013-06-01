@@ -14,11 +14,15 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias lc='ls -CF'
+
 alias lsd='ls -l | grep "^d"'  # List only directories
 alias hosts='sudo $EDITOR /etc/hosts'
 
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
+
+export TIME_STYLE='posix-long-iso'
+
 
 # gnu diff does not have DIFFOPTIONS like FreeBSD so:
 alias diff='diff -u'
