@@ -14,7 +14,6 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias lc='ls -CF'
-
 alias lsd='ls -l | grep "^d"'  # List only directories
 alias hosts='sudo $EDITOR /etc/hosts'
 
@@ -138,7 +137,7 @@ pathfront()
 # Start an HTTP server from a directory, optionally specifying the port
 server() {
     local port="${1:-8000}"
-    open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port"
+    (sleep 1 && open "http://localhost:${port}/") && python -m SimpleHTTPServer "$port"
 }
 
 # include machine specific aliases
