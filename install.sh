@@ -175,11 +175,3 @@ do
   cp -p "${src}/${f}" "${d}"
 done
 
-# https://github.com/rupa/z
-# Tracks your most used directories, based on 'frecency'.
-# put this in your .bash_profile:
-#   . /path/to/z.sh
-echo Installing z ...
-mkdir -p ~/bin/
-curl https://raw.github.com/rupa/z/master/z.sh > ~/bin/z.sh
-chmod +x ~/bin/z.sh
