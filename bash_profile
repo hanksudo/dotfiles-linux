@@ -5,10 +5,5 @@ for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
 done
 unset file
 
-. ~/bin/z.sh
-
 # git bash completion
 . /usr/local/etc/bash_completion.d/git-completion.bash
-
-
-[[ -s /Users/hank/.nvm/nvm.sh ]] && . /Users/hank/.nvm/nvm.sh # This loads NVM
